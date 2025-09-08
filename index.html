@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Pharmacy - Tirur Bus Stand | Traditional Ayurvedic Medicine</title>
+    <meta name="description" content="Ayurveda Pharmacy at Tirur Bus Stand - Your trusted destination for authentic Ayurvedic medicines, herbal remedies, and traditional treatments. 15+ years of service.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .est-year {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-tab {
+            padding: 15px 30px;
+            border-radius: 15px;
+            background: transparent;
+            border: none;
+            color: #cccccc;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-tab.active,
+        .nav-tab:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* Content Section Styles */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* About Section Styles */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .about-text {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #aaaaaa;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Owner Profile Styles */
+        .owner-profile {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .owner-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .owner-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .owner-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .owner-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            color: #000000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .owner-details {
+            padding: 20px 0;
+        }
+
+        .owner-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .owner-title {
+            font-size: 1.3rem;
+            color: #aaaaaa;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .owner-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #000000;
+            flex-shrink: 0;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-content strong {
+            display: block;
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .info-content p {
+            color: #cccccc;
+            margin: 2px 0;
+            line-height: 1.6;
+        }
+
+        .owner-description {
+            margin: 30px 0;
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .owner-description p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .owner-contact-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .owner-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .owner-btn:hover {
+            transform: translateY(-3px);
+            background: #cccccc;
+        }
+
+        .owner-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .owner-btn.secondary:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Products Section Styles */
+        .products-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: #cccccc;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ffffff;
+            color: #000000;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-category {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-description {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .product-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .product-btn.primary {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .product-btn.primary:hover {
+            background: #cccccc;
+        }
+
+        .product-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .product-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: border-color 0.4s ease;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-item:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 3rem;
+            color: #ffffff;
+        }
+
+        /* Contact Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 35px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: #ffffff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #000000;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Reviews Styles */
+        .reviews-section {
+            text-align: center;
+        }
+
+        .review-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .review-stat {
+            text-align: center;
+        }
+
+        .review-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: block;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .review-label {
+            color: #aaaaaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            margin: 15px 0;
+        }
+
+        /* Action Button Styles */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 35px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: #cccccc;
+        }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .action-btn.secondary:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Map Container */
+        .map-container {
+            margin-top: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .map-container:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            object-fit: contain;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-grid,
+            .owner-profile {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .owner-profile {
+                text-align: center;
+            }
+            
+            .owner-image img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 2.8rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .nav-tab {
+                width: 220px;
+                text-align: center;
+            }
+            
+            .owner-image img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .owner-name {
+                font-size: 2rem;
+            }
+            
+            .owner-contact-actions {
+                justify-content: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-btn {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+
+            .review-stats {
+                gap: 30px;
+            }
+
+            .section-card {
+                padding: 25px;
+            }
+
+            .products-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number,
+            .review-number {
+                font-size: 2.5rem;
+            }
+
+            .header {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">🌿 Ayurveda Pharmacy</h1>
+            <p class="tagline">Arya Vaidya Pharmacy • Coimbatore • Tirur Bus Stand</p>
+            <p class="est-year">Serving the Community Since 15+ Years</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs" role="navigation">
+            <button class="nav-tab active" onclick="showSection('about', this)" aria-label="About Us">About Us</button>
+            <button class="nav-tab" onclick="showSection('products', this)" aria-label="Products">Products</button>
+            <button class="nav-tab" onclick="showSection('owner', this)" aria-label="Owner Profile">Owner Profile</button>
+            <button class="nav-tab" onclick="showSection('gallery', this)" aria-label="Gallery">Gallery</button>
+            <button class="nav-tab" onclick="showSection('reviews', this)" aria-label="Reviews">Reviews</button>
+            <button class="nav-tab" onclick="showSection('contact', this)" aria-label="Contact">Contact</button>
+        </nav>
+
+        <!-- About Section -->
+        <section id="about" class="content-section active">
+            <div class="section-card">
+                <h2 class="section-title">About Ayurveda Pharmacy</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Welcome to Ayurveda Pharmacy, your trusted destination for authentic Ayurvedic medicines and traditional healing solutions. Located at the bustling Tirur Bus Stand, we have been serving our community for over 60 years with dedication and expertise.</p>
+                        
+                        <p>Our pharmacy specializes in high-quality Ayurvedic medicines, herbal remedies, and traditional treatments that have been proven effective for generations. We combine ancient wisdom with modern pharmaceutical standards to ensure the best care for our customers.</p>
+                        
+                        <p>At Ayurveda Pharmacy, we believe in holistic healing and personalized care. Our experienced team is always ready to guide you towards the right remedies for your health concerns, following the time-tested principles of Ayurveda.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years of Service</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Products Available</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5000+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Our Products</h2>
+                
+                <div class="products-categories">
+                    <button class="category-btn active" onclick="filterProducts('all', this)">All Products</button>
+                    <button class="category-btn" onclick="filterProducts('medicines', this)">Medicines</button>
+                    <button class="category-btn" onclick="filterProducts('oils', this)">Oils & Tonics</button>
+                    <button class="category-btn" onclick="filterProducts('tablets', this)">Tablets</button>
+                    <button class="category-btn" onclick="filterProducts('powders', this)">Powders</button>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <article class="product-card" data-category="powders">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1572902414624-80017d6b348c?w=500&h=400&fit=crop&crop=center" alt="Chyawanprash - Health Tonic" loading="lazy" />
+                            <div class="product-badge">Organic</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Chyawanprash</h3>
+                            <p class="product-category">Health Tonic</p>
+                            <p class="product-description">Traditional immunity booster with 40+ natural ingredients.</p>
+                            <p class="product-price">₹450</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="medicines">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1577659633834-14e6c14c3e0b?w=500&h=400&fit=crop&crop=center" alt="Saraswatarishta - Brain Tonic" loading="lazy" />
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Saraswatarishta</h3>
+                            <p class="product-category">Brain Tonic</p>
+                            <p class="product-description">Memory enhancer and cognitive support liquid medicine.</p>
+                            <p class="product-price">₹275</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="oils">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=500&h=400&fit=crop&crop=center" alt="Ksheerabala Thailam - Therapeutic Oil" loading="lazy" />
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ksheerabala Thailam</h3>
+                            <p class="product-category">Therapeutic Oil</p>
+                            <p class="product-description">Premium oil for neurological wellness and stress relief.</p>
+                            <p class="product-price">₹390</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="tablets">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&h=400&fit=crop&crop=center" alt="Ashwagandha Tablets - Stress Relief" loading="lazy" />
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ashwagandha Tablets</h3>
+                            <p class="product-category">Stress Relief</p>
+                            <p class="product-description">Natural adaptogen for stress management and energy boost.</p>
+                            <p class="product-price">₹280</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="powders">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1609501676725-7186f28fa6c5?w=500&h=400&fit=crop&crop=center" alt="Triphala Churna - Digestive Health" loading="lazy" />
+                            <div class="product-badge">Popular</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Triphala Churna</h3>
+                            <p class="product-category">Digestive Health</p>
+                            <p class="product-description">Three-fruit blend for digestive wellness and detoxification.</p>
+                            <p class="product-price">₹180</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="medicines">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd2c063?w=500&h=400&fit=crop&crop=center" alt="Brahmi Ghrita - Mental Clarity" loading="lazy" />
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Brahmi Ghrita</h3>
+                            <p class="product-category">Mental Clarity</p>
+                            <p class="product-description">Medicated ghee for enhanced memory and mental focus.</p>
+                            <p class="product-price">₹520</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="oils">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1505944270255-72b8c68c6a70?w=500&h=400&fit=crop&crop=center" alt="Mahanarayan Oil - Joint Care" loading="lazy" />
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Mahanarayan Oil</h3>
+                            <p class="product-category">Joint Care</p>
+                            <p class="product-description">Therapeutic oil for joint pain and muscle stiffness relief.</p>
+                            <p class="product-price">₹320</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card" data-category="tablets">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1550572017-edd951b55104?w=500&h=400&fit=crop&crop=center" alt="Arjuna Tablets - Heart Health" loading="lazy" />
+                            <div class="product-badge">Recommended</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Arjuna Tablets</h3>
+                            <p class="product-category">Heart Health</p>
+                            <p class="product-description">Natural cardiac tonic for cardiovascular wellness.</p>
+                            <p class="product-price">₹340</p>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary" target="_blank">WhatsApp</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="tel:+919846932133" class="action-btn">
+                        <i class="fas fa-phone"></i> Call for More Products
+                    </a>
+                    <a href="https://wa.me/919846932133" class="action-btn secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Catalog
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Owner Profile Section -->
+        <section id="owner" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Meet Our Owner</h2>
+                <div class="owner-profile">
+                    <div class="owner-image">
+                        <img src="https://i.ibb.co/v4PJHtWC/temp.jpg" alt="Ullas Vadakkepatt - Owner Profile" loading="lazy" />
+                        <div class="owner-badge">
+                            <span>15+ Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="owner-details">
+                        <h3 class="owner-name">Ullas Vadakkepatt</h3>
+                        <p class="owner-title">Founder & Chief Pharmacist</p>
+                        <div class="owner-info">
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="info-content">
+                                    <strong>Location:</strong>
+                                    <p>Tirur, Malappuram District, Kerala</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div class="info-content">
+                                    <strong>Direct Contact:</strong>
+                                    <p>+91 9846932133</p>
+                                    <p>Available for consultations</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owner-description">
+                            <p>Ullas Vadakkepatt has been serving the Tirur community for over 60 years with his deep knowledge of Ayurvedic medicine and modern pharmaceutical practices. He founded Ayurveda Pharmacy with a vision to make authentic Ayurvedic treatments accessible to everyone.</p>
+                            <p>With his extensive experience and commitment to traditional healing, Ullas Vadakkepatt personally ensures that every customer receives the right guidance and genuine medicines for their health concerns.</p>
+                        </div>
+                        <div class="owner-contact-actions">
+                            <a href="tel:+919846932133" class="owner-btn"><i class="fas fa-phone"></i> Call Owner</a>
+                            <a href="https://wa.me/919846932133" target="_blank" class="owner-btn secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Our Pharmacy Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npwbcVzdbQq5rjOM0__g0dlvAU4lZUH--lGWwcbY4SEESeJVZo1jmh3gVwjzkTQIosSU6IWHnGVKxGamZ-tjUlnTU113CXJxVWhZLKpQpacqhyD90gl755JBbK3pfg_hMsIvmB8eg=s680-w680-h510-rw" alt="Ayurveda Pharmacy Interior" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npbzujWVbX1rINHWY40jlZGOpxqdmXVirtgxNs6vk9Ygf3Nzj52mUEUCbgml3iy7wfKd23UR-beE2n5skknUrQ5jJW6-SF5S3TRlYqfVqjGg6xGfv8SP8N2RCvfi0jrbdKJ86KHaA=s680-w680-h510-rw" alt="Ayurvedic Medicines Collection" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrH7WrYem3jL4Qwl6DGN_AcSk6e2MkwmsLnc_IE2LrVGHLT4nv-iJIhSulRBDUkVHFRL7hgwWBKNF-_ZefenbE1MJ_TtUOl5GRH-hkrm2xXmFpCFuz53e5s1Y2Ne3mNpN-mKoFD=s680-w680-h510-rw" alt="Herbal Products Display" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipP-trxLbpPK4x32UAuxm3WZM3WKnkpIeCoYHdYA=s680-w680-h510-rw" alt="Traditional Medicine Setup" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npDtmJn3iNL9Jfiw_J9R5r6L_9T81EQOp4hNDVtXdyZQ1F6nVLvZpve6ZDtaBIVhanDQsW2lFxnWDYGNDUlwfelQxIE7RpIIVNqu9OvxutZlJ6vMaWGcBndUC7dFa06-LKNEVTZ=s680-w680-h510-rw" alt="Consultation Area" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                          </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipN4y0T3RKOh3xzy0B21oSqFCVxaJ7EjmavoDHVZ=s680-w680-h510-rw" alt="Medicine Preparation Area" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Customer Reviews</h2>
+                <div class="reviews-section">
+                    <div class="review-stats">
+                        <div class="review-stat">
+                            <span class="review-number">4.8</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="review-label">Average Rating</span>
+                        </div>
+                        <div class="review-stat">
+                            <span class="review-number">500+</span>
+                            <span class="review-label">Happy Reviews</span>
+                        </div>
+                        <div class="review-stat">
+                            <span class="review-number">98%</span>
+                            <span class="review-label">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <a href="https://www.google.com/maps/place/Arya+Vaidya+Pharmacy+(Coimbatore)+LTD.Tirur+bus+stand+shop/@10.9179528,75.9252854,20z/data=!4m8!3m7!1s0x3ba7b1bc2e2b6dc5:0xf4435707bcdc3eac!8m2!3d10.91826!4d75.9254958!9m1!1b1!16s%2Fg%2F11rn0c9xrh?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="action-btn">
+                            <i class="fas fa-edit"></i> Write a Review
+                        </a>
+                        <a href="https://www.google.com/maps/place/Arya+Vaidya+Pharmacy+(Coimbatore)+LTD.Tirur+bus+stand+shop/@10.9179528,75.9252854,20z/data=!4m8!3m7!1s0x3ba7b1bc2e2b6dc5:0xf4435707bcdc3eac!8m2!3d10.91826!4d75.9254958!9m1!1b1!16s%2Fg%2F11rn0c9xrh?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="action-btn secondary">
+                            <i class="fas fa-users"></i> View All Reviews
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Location</h3>
+                        <address>
+                            Near Tirur Bus Stand<br>
+                            Tirur, Malappuram District<br>
+                            Kerala, India - 676101
+                        </address>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+919846932133">+91 9846932133</a></p>
+                        <p><strong>Call us for:</strong><br>• Medicine inquiries<br>• Location directions<br>• Opening hours</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Opening Hours</h3>
+                        <p><strong>Monday - Saturday:</strong><br>8:00 AM - 11:00 PM</p>
+                        <p><strong>Sunday:</strong><br>8:00 AM - 11:00 PM</p>
+                        <p><em>Emergency services available</em></p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="tel:+919846932133" class="action-btn">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/919846932133" target="_blank" class="action-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://maps.app.goo.gl/g4NqgEStonR4SQ6J6" target="_blank" class="action-btn secondary">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.234!2d75.9254958!3d10.91826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7b1bc2e2b6dc5%3A0xf4435707bcdc3eac!2sArya%20Vaidya%20Pharmacy%20(Coimbatore)%20LTD.Tirur%20bus%20stand%20shop!5e0!3m2!1sen!2sin!4v1693924800000!5m2!1sen!2sin"
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ayurveda Pharmacy Location Map">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox for Gallery -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        // Navigation function
+        function showSection(sectionId, clickedTab) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            clickedTab.classList.add('active');
+        }
+
+        // Product filtering
+        function filterProducts(category, clickedBtn) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            clickedBtn.classList.add('active');
+            
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-in';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Gallery lightbox
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Animate stats on page load
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number, .review-number');
+            statNumbers.forEach(stat => {
+                const finalNumber = stat.textContent;
+                const numericValue = parseFloat(finalNumber.replace(/[^0-9.]/g, ''));
+                
+                let current = 0;
+                const increment = numericValue / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericValue) {
+                        stat.textContent = finalNumber;
+                        clearInterval(timer);
+                    } else {
+                        if (finalNumber.includes('.')) {
+                            stat.textContent = current.toFixed(1);
+                        } else {
+                            stat.textContent = Math.floor(current) + 
+                                (finalNumber.includes('+') ? '+' : '') + 
+                                (finalNumber.includes('%') ? '%' : '');
+                        }
+                    }
+                }, 50);
+            });
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(animateStats, 500);
+            
+            const cards = document.querySelectorAll('.section-card, .stat-item, .contact-card, .gallery-item, .product-card');
+            cards.forEach(card => {
+                card.style.opacity = '0.3';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.action-btn, .owner-btn, .product-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 100);
+                });
+            });
+        });
+
+        // Keyboard accessibility for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
+           
