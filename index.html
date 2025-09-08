@@ -357,24 +357,19 @@
             overflow: hidden;
             aspect-ratio: 1;
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: border-color 0.4s ease;
             border: 3px solid rgba(255, 255, 255, 0.1);
         }
 
         .gallery-item:hover {
-            transform: scale(1.05) rotate(2deg);
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
+            transition: none;
         }
 
         .gallery-overlay {
@@ -407,16 +402,6 @@
             border: 2px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s ease;
             position: relative;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: #ffffff;
         }
 
         .contact-card:hover {
@@ -678,7 +663,7 @@
         <!-- Header -->
         <div class="header">
             <div class="logo">🌿 Ayurveda Pharmacy</div>
-            <div class="tagline">Traditional Healing • Modern Care • Tirur Bus Stand</div>
+            <div class="tagline">Arya Vaidya Pharmacy • Coimbatore • Tirur Bus Stand</div>
             <div class="est-year">Serving the Community Since 15+ Years</div>
         </div>
 
@@ -727,10 +712,16 @@
                 <h2 class="section-title">Meet Our Owner</h2>
                 <div class="owner-profile">
                     <div class="owner-image">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" alt="Dr. Rajesh Kumar - Owner Profile" />
+                        <img src="https://i.ibb.co/v4PJHtWC/temp.jpg" alt="Ullas Vadakkepatt - Owner Profile" />
                         <div class="owner-badge">
                             <span>15+ Years Experience</span>
                         </div>
                     </div>
                     <div class="owner-details">
-                     
+                        <h3 class="owner-name">Ullas Vadakkepatt</h3>
+                        <p class="owner-title">Founder & Chief Pharmacist</p>
+                        <div class="owner-info">
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="info-content">
+                       
