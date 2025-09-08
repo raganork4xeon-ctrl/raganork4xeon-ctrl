@@ -724,4 +724,290 @@
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div class="info-content">
-                       
+                       <strong>Location:</strong>
+                                    <p>Tirur, Malappuram District, Kerala</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div class="info-content">
+                                    <strong>Direct Contact:</strong>
+                                    <p>+91 9846932133</p>
+                                    <p>+91 9846932133</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="owner-description">
+                            <p>Ullas Vadakkepatt has been serving the Tirur community for over 15 years with his deep knowledge of Ayurvedic medicine and modern pharmaceutical practices. He founded Ayurveda Pharmacy with a vision to make authentic Ayurvedic treatments accessible to everyone.</p>
+                            <p>With his extensive experience and commitment to traditional healing, Ullas Vadakkepatt personally ensures that every customer receives the right guidance and genuine medicines for their health concerns.</p>
+                        </div>
+                        <div class="owner-contact-actions">
+                            <a href="tel:+919846932133
+                          " class="owner-btn"><i class="fas fa-phone"></i> Call Owner</a>
+                            <a href="https://wa.me/9846932133" target="_blank" class="action-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://maps.app.goo.gl/g4NqgEStonR4SQ6J6" target="_blank" class="action-btn secondary">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.4567890123456!2d75.9245678!3d11.0678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTirur%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation function to show/hide sections
+        function showSection(sectionId, clickedTab) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            clickedTab.classList.add('active');
+        }
+
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.section-card, .stat-item, .contact-card, .gallery-item');
+            cards.forEach(card => {
+                card.style.opacity = '0.3';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // Gallery lightbox functionality
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
+                    cursor: pointer;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = img.src;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 10px;
+                    box-shadow: 0 0 50px rgba(255,255,255,0.3);
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', function() {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+
+        // Add hover effects to action buttons
+        document.querySelectorAll('.action-btn, .owner-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click feedback to navigation tabs
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Add a quick pulse effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 100);
+            });
+        });
+
+        // Animate stats on page load
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number, .review-number');
+            statNumbers.forEach(stat => {
+                const finalNumber = stat.textContent;
+                const isDecimal = finalNumber.includes('.');
+                const numericValue = parseFloat(finalNumber.replace(/[^0-9.]/g, ''));
+                
+                let current = 0;
+                const increment = numericValue / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericValue) {
+                        stat.textContent = finalNumber;
+                        clearInterval(timer);
+                    } else {
+                        if (isDecimal) {
+                            stat.textContent = current.toFixed(1);
+                        } else {
+                            stat.textContent = Math.floor(current) + (finalNumber.includes('+') ? '+' : '') + (finalNumber.includes('%') ? '%' : '');
+                        }
+                    }
+                }, 50);
+            });
+        }
+
+        // Start stat animation when page loads
+        window.addEventListener('load', function() {
+            setTimeout(animateStats, 500);
+        });
+    </script>
+</body>
+</html>919846932133" target="_blank" class="owner-btn secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <div id="gallery" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Our Pharmacy Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npwbcVzdbQq5rjOM0__g0dlvAU4lZUH--lGWwcbY4SEESeJVZo1jmh3gVwjzkTQIosSU6IWHnGVKxGamZ-tjUlnTU113CXJxVWhZLKpQpacqhyD90gl755JBbK3pfg_hMsIvmB8eg=s680-w680-h510-rw" alt="Ayurveda Pharmacy Interior">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npbzujWVbX1rINHWY40jlZGOpxqdmXVirtgxNs6vk9Ygf3Nzj52mUEUCbgml3iy7wfKd23UR-beE2n5skknUrQ5jJW6-SF5S3TRlYqfVqjGg6xGfv8SP8N2RCvfi0jrbdKJ86KHaA=s680-w680-h510-rw" alt="Ayurvedic Medicines Collection">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrH7WrYem3jL4Qwl6DGN_AcSk6e2MkwmsLnc_IE2LrVGHLT4nv-iJIhSulRBDUkVHFRL7hgwWBKNF-_ZefenbE1MJ_TtUOl5GRH-hkrm2xXmFpCFuz53e5s1Y2Ne3mNpN-mKoFD=s680-w680-h510-rw" alt="Herbal Products Display">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipP-trxLbpPK4x32UAuxm3WZM3WKnkpIeCoYHdYA=s680-w680-h510-rw" alt="Traditional Medicine Setup">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4npDtmJn3iNL9Jfiw_J9R5r6L_9T81EQOp4hNDVtXdyZQ1F6nVLvZpve6ZDtaBIVhanDQsW2lFxnWDYGNDUlwfelQxIE7RpIIVNqu9OvxutZlJ6vMaWGcBndUC7dFa06-LKNEVTZ=s680-w680-h510-rw" alt="Consultation Area">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipN4y0T3RKOh3xzy0B21oSqFCVxaJ7EjmavoDHVZ=s680-w680-h510-rw" alt="Medicine Preparation Area">
+                        <div class="gallery-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div id="reviews" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Customer Reviews</h2>
+                <div class="reviews-section">
+                    <div class="review-stats">
+                        <div class="review-stat">
+                            <span class="review-number">4.8</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="review-label">Average Rating</span>
+                        </div>
+                        <div class="review-stat">
+                            <span class="review-number">500+</span>
+                            <span class="review-label">Happy Reviews</span>
+                        </div>
+                        <div class="review-stat">
+                            <span class="review-number">98%</span>
+                            <span class="review-label">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <a href="https://g.page/r/tirur-bus-stand/review" target="_blank" class="action-btn">
+                            <i class="fas fa-edit"></i> Write a Review
+                        </a>
+                        <button class="action-btn secondary" onclick="alert('Reviews feature coming soon!')">
+                            <i class="fas fa-users"></i> View All Reviews
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Location</h3>
+                        <address>
+                            Near Tirur Bus Stand<br>
+                            Tirur, Malappuram District<br>
+                            Kerala, India - 676101
+                        </address>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+919846932133">+919846932133</a><br><a href="tel:+919846932133">+919846932133</a></p>
+                        <p><strong>Call us for:</strong><br>• Medicine inquiries<br>• Location<br>• Open Hours</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+                        <h3>Opening Hours</h3>
+                        <p><strong>Monday - Saturday:</strong><br>8:00 AM - 11:00 PM</p>
+                        <p><strong>Sunday:</strong><br>8:00 AM - 11:00 PM</p>
+                        <p><em>Emergency services available</em></p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="tel:+919846932133" class="action-btn">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/
