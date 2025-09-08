@@ -343,6 +343,166 @@
             color: #000000;
         }
 
+        /* Products Section */
+        .products-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: #cccccc;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #2d5a27, #4a7c59);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-image .placeholder-icon {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ffffff;
+            color: #000000;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .product-category {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-description {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .product-btn.primary {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .product-btn.primary:hover {
+            background: #cccccc;
+        }
+
+        .product-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .product-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         /* Gallery Grid */
         .gallery-grid {
             display: grid;
@@ -570,7 +730,8 @@
             }
             
             .gallery-grid,
-            .contact-grid {
+            .contact-grid,
+            .products-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
@@ -629,12 +790,18 @@
             }
 
             .gallery-grid,
-            .contact-grid {
+            .contact-grid,
+            .products-grid {
                 grid-template-columns: 1fr;
             }
 
             .section-card {
                 padding: 25px;
+            }
+
+            .products-categories {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -670,6 +837,7 @@
         <!-- Navigation -->
         <div class="nav-tabs">
             <button class="nav-tab active" onclick="showSection('about', this)">About Us</button>
+            <button class="nav-tab" onclick="showSection('products', this)">Products</button>
             <button class="nav-tab" onclick="showSection('owner', this)">Owner Profile</button>
             <button class="nav-tab" onclick="showSection('gallery', this)">Gallery</button>
             <button class="nav-tab" onclick="showSection('reviews', this)">Reviews</button>
@@ -706,6 +874,169 @@
             </div>
         </div>
 
+        <!-- Products Section -->
+        <div id="products" class="content-section">
+            <div class="section-card">
+                <h2 class="section-title">Our Products</h2>
+                
+                <!-- Product Categories Filter -->
+                <div class="products-categories">
+                    <button class="category-btn active" onclick="filterProducts('all', this)">All Products</button>
+                    <button class="category-btn" onclick="filterProducts('medicines', this)">Medicines</button>
+                    <button class="category-btn" onclick="filterProducts('oils', this)">Oils & Tonics</button>
+                    <button class="category-btn" onclick="filterProducts('tablets', this)">Tablets</button>
+                    <button class="category-btn" onclick="filterProducts('powders', this)">Powders</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    
+                    <div class="product-card" data-category="medicines">
+                        <div class="product-image">
+                            <i class="fas fa-leaf placeholder-icon"></i>
+                            <div class="product-badge">New</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Ashtavarga Kashayam</div>
+                            <div class="product-category">Traditional Medicine</div>
+                            <div class="product-description">Authentic Ayurvedic formulation for respiratory wellness and immune support.</div>
+                            <div class="product-price">₹250</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="oils">
+                        <div class="product-image">
+                            <i class="fas fa-tint placeholder-icon"></i>
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Ksheerabala Thailam</div>
+                            <div class="product-category">Therapeutic Oil</div>
+                            <div class="product-description">Premium oil for neurological wellness and stress relief.</div>
+                            <div class="product-price">₹390</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="tablets">
+                        <div class="product-image">
+                            <i class="fas fa-pills placeholder-icon"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Ashwagandha Tablets</div>
+                            <div class="product-category">Stress Relief</div>
+                            <div class="product-description">Natural adaptogen for stress management and energy boost.</div>
+                            <div class="product-price">₹280</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="powders">
+                        <div class="product-image">
+                            <i class="fas fa-mortar-pestle placeholder-icon"></i>
+                            <div class="product-badge">Premium</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Sitopaladi Churna</div>
+                            <div class="product-category">Respiratory Support</div>
+                            <div class="product-description">Traditional powder for cough, cold and respiratory health.</div>
+                            <div class="product-price">₹150</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="oils">
+                        <div class="product-image">
+                            <i class="fas fa-tint placeholder-icon"></i>
+                            <div class="product-badge">Popular</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Dhanwantharam Thailam</div>
+                            <div class="product-category">Medicinal Oil</div>
+                            <div class="product-description">Premium quality oil for joint health and muscle strength.</div>
+                            <div class="product-price">₹180</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="tablets">
+                        <div class="product-image">
+                            <i class="fas fa-pills placeholder-icon"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Triphala Guggulu</div>
+                            <div class="product-category">Herbal Tablets</div>
+                            <div class="product-description">Natural digestive support and detoxification tablets.</div>
+                            <div class="product-price">₹320</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="powders">
+                        <div class="product-image">
+                            <i class="fas fa-mortar-pestle placeholder-icon"></i>
+                            <div class="product-badge">Organic</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Chyawanprash</div>
+                            <div class="product-category">Health Tonic</div>
+                            <div class="product-description">Traditional immunity booster with 40+ natural ingredients.</div>
+                            <div class="product-price">₹450</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="medicines">
+                        <div class="product-image">
+                            <i class="fas fa-leaf placeholder-icon"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">Saraswatarishta</div>
+                            <div class="product-category">Brain Tonic</div>
+                            <div class="product-description">Memory enhancer and cognitive support liquid medicine.</div>
+                            <div class="product-price">₹275</div>
+                            <div class="product-actions">
+                                <a href="tel:+919846932133" class="product-btn primary">Inquire Now</a>
+                                <a href="https://wa.me/919846932133" class="product-btn secondary">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="action-buttons">
+                    <a href="tel:+919846932133" class="action-btn">
+                        <i class="fas fa-phone"></i> Call for More Products
+                    </a>
+                    <a href="https://wa.me/919846932133" class="action-btn secondary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Catalog
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Owner Profile Section -->
         <div id="owner" class="content-section">
             <div class="section-card">
@@ -724,7 +1055,7 @@
                             <div class="info-item">
                                 <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div class="info-content">
-                       <strong>Location:</strong>
+                                    <strong>Location:</strong>
                                     <p>Tirur, Malappuram District, Kerala</p>
                                 </div>
                             </div>
@@ -743,168 +1074,8 @@
                             <p>With his extensive experience and commitment to traditional healing, Ullas Vadakkepatt personally ensures that every customer receives the right guidance and genuine medicines for their health concerns.</p>
                         </div>
                         <div class="owner-contact-actions">
-                            <a href="tel:+919846932133
-                          " class="owner-btn"><i class="fas fa-phone"></i> Call Owner</a>
-                            <a href="https://wa.me/9846932133" target="_blank" class="action-btn">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="https://maps.app.goo.gl/g4NqgEStonR4SQ6J6" target="_blank" class="action-btn secondary">
-                        <i class="fas fa-directions"></i> Get Directions
-                    </a>
-                </div>
-
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.4567890123456!2d75.9245678!3d11.0678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTirur%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                        allowfullscreen="" 
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Navigation function to show/hide sections
-        function showSection(sectionId, clickedTab) {
-            // Hide all content sections
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Remove active class from all nav tabs
-            const tabs = document.querySelectorAll('.nav-tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show the selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked tab
-            clickedTab.classList.add('active');
-        }
-
-        // Smooth animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards for scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.section-card, .stat-item, .contact-card, .gallery-item');
-            cards.forEach(card => {
-                card.style.opacity = '0.3';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-        });
-
-        // Gallery lightbox functionality
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const img = this.querySelector('img');
-                const lightbox = document.createElement('div');
-                lightbox.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 1000;
-                    cursor: pointer;
-                `;
-                
-                const lightboxImg = document.createElement('img');
-                lightboxImg.src = img.src;
-                lightboxImg.style.cssText = `
-                    max-width: 90%;
-                    max-height: 90%;
-                    border-radius: 10px;
-                    box-shadow: 0 0 50px rgba(255,255,255,0.3);
-                `;
-                
-                lightbox.appendChild(lightboxImg);
-                document.body.appendChild(lightbox);
-                
-                lightbox.addEventListener('click', function() {
-                    document.body.removeChild(lightbox);
-                });
-            });
-        });
-
-        // Add hover effects to action buttons
-        document.querySelectorAll('.action-btn, .owner-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add click feedback to navigation tabs
-        document.querySelectorAll('.nav-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Add a quick pulse effect
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 100);
-            });
-        });
-
-        // Animate stats on page load
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number, .review-number');
-            statNumbers.forEach(stat => {
-                const finalNumber = stat.textContent;
-                const isDecimal = finalNumber.includes('.');
-                const numericValue = parseFloat(finalNumber.replace(/[^0-9.]/g, ''));
-                
-                let current = 0;
-                const increment = numericValue / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= numericValue) {
-                        stat.textContent = finalNumber;
-                        clearInterval(timer);
-                    } else {
-                        if (isDecimal) {
-                            stat.textContent = current.toFixed(1);
-                        } else {
-                            stat.textContent = Math.floor(current) + (finalNumber.includes('+') ? '+' : '') + (finalNumber.includes('%') ? '%' : '');
-                        }
-                    }
-                }, 50);
-            });
-        }
-
-        // Start stat animation when page loads
-        window.addEventListener('load', function() {
-            setTimeout(animateStats, 500);
-        });
-    </script>
-</body>
-</html>919846932133" target="_blank" class="owner-btn secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="tel:+919846932133" class="owner-btn"><i class="fas fa-phone"></i> Call Owner</a>
+                            <a href="https://wa.me/919846932133" target="_blank" class="owner-btn secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -966,48 +1137,5 @@
                     </div>
                     
                     <div class="action-buttons">
-                        <a href="https://g.page/r/tirur-bus-stand/review" target="_blank" class="action-btn">
+                        <a href="https://www.google.com/maps/place/Arya+Vaidya+Pharmacy+(Coimbatore)+LTD.Tirur+bus+stand+shop/@10.9179528,75.9252854,20z/data=!4m8!3m7!1s0x3ba7b1bc2e2b6dc5:0xf4435707bcdc3eac!8m2!3d10.91826!4d75.9254958!9m1!1b1!16s%2Fg%2F11rn0c9xrh?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="action-btn">
                             <i class="fas fa-edit"></i> Write a Review
-                        </a>
-                        <button class="action-btn secondary" onclick="alert('Reviews feature coming soon!')">
-                            <i class="fas fa-users"></i> View All Reviews
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div id="contact" class="content-section">
-            <div class="section-card">
-                <h2 class="section-title">Contact Us</h2>
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
-                        <h3>Location</h3>
-                        <address>
-                            Near Tirur Bus Stand<br>
-                            Tirur, Malappuram District<br>
-                            Kerala, India - 676101
-                        </address>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
-                        <h3>Phone</h3>
-                        <p><a href="tel:+919846932133">+919846932133</a><br><a href="tel:+919846932133">+919846932133</a></p>
-                        <p><strong>Call us for:</strong><br>• Medicine inquiries<br>• Location<br>• Open Hours</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
-                        <h3>Opening Hours</h3>
-                        <p><strong>Monday - Saturday:</strong><br>8:00 AM - 11:00 PM</p>
-                        <p><strong>Sunday:</strong><br>8:00 AM - 11:00 PM</p>
-                        <p><em>Emergency services available</em></p>
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <a href="tel:+919846932133" class="action-btn">
-                        <i class="fas fa-phone"></i> Call Now
-                    </a>
-                    <a href="https://wa.me/
